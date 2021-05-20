@@ -1,15 +1,25 @@
 package com.guilib.listener;
 
-import com.voidmc.gui.buttons.Button;
-import com.voidmc.gui.events.ButtonClickEvent;
-import com.voidmc.gui.gui.GUI;
-import com.voidmc.gui.gui.GUIManager;
+import com.guilib.buttons.ActionButton;
+import com.guilib.buttons.Button;
+import com.guilib.events.ButtonClickEvent;
+import com.guilib.gui.GUI;
+import com.guilib.gui.GUIItem;
+import com.guilib.gui.GUIManager;
+import kotlin.jvm.internal.MagicApiIntrinsics;
+import net.minestom.server.MinecraftServer;
 import net.minestom.server.event.EventCallback;
 import net.minestom.server.event.inventory.InventoryPreClickEvent;
 import net.minestom.server.inventory.Inventory;
 
 public class GUIListener {
 
+    /**
+     * Get the Event callback that needs to be registered
+     * in the main class
+     *
+     * @return the event callback
+     */
     public static EventCallback<InventoryPreClickEvent> getEvent() {
         return e -> {
             try {

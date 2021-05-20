@@ -1,12 +1,17 @@
 package com.guilib.buttons;
 
-import net.kyori.adventure.text.event.ClickEvent;
+import com.guilib.events.ClickEvent;
 import net.minestom.server.item.ItemStack;
 
 public class StaticButton extends Button {
 
     private ItemStack item;
 
+    /**
+     * A Button that does nothing when you click on it
+     *
+     * @param item the item for the button that will show up in the inventory
+     */
     public StaticButton(ItemStack item) {
         this.item = item;
     }

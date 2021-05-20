@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.arquillian.spacelift:arquillian-spacelift-api:1.0.2">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.arquillian.spacelift/arquillian-spacelift-api/1.0.2/8660d69d055cb1ed5cb019e68a20241f1807bbf4/arquillian-spacelift-api-1.0.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.arquillian.spacelift/arquillian-spacelift-api/1.0.2/9a3a4093beb5907aa694843b5668d8930a616d9b/arquillian-spacelift-api-1.0.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

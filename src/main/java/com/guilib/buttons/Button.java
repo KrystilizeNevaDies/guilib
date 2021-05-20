@@ -1,6 +1,6 @@
 package com.guilib.buttons;
 
-import net.kyori.adventure.text.event.ClickEvent;
+import com.guilib.events.ClickEvent;
 import net.minestom.server.item.ItemStack;
 
 public abstract class Button {

@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: io.netty.incubator:netty-incubator-transport-native-io_uring:0.0.5.Final">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty.incubator/netty-incubator-transport-native-io_uring/0.0.5.Final/a7f96be74d9a71b3d619748064d13e500659815e/netty-incubator-transport-native-io_uring-0.0.5.Final.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty.incubator/netty-incubator-transport-native-io_uring/0.0.5.Final/a95740d128df68628946febd69f65168d2072752/netty-incubator-transport-native-io_uring-0.0.5.Final-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

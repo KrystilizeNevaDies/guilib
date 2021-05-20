@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.codehaus.plexus:plexus-component-annotations:1.7">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.codehaus.plexus/plexus-component-annotations/1.7/5721c75d45fe15b9212877ad5b3dd7578e9dfc0/plexus-component-annotations-1.7.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.codehaus.plexus/plexus-component-annotations/1.7/f2c602452462d3ca67216069ae02b5299c6e6856/plexus-component-annotations-1.7-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
