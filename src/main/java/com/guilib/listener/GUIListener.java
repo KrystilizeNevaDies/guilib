@@ -6,7 +6,6 @@ import com.guilib.gui.GUI;
 import com.guilib.gui.GUIManager;
 
 import net.minestom.server.event.inventory.InventoryPreClickEvent;
-import net.minestom.server.inventory.Inventory;
 
 public class GUIListener {
 
@@ -17,23 +16,23 @@ public class GUIListener {
      * @return the event callback
      */
     public static void preClickEvent(InventoryPreClickEvent e) {
-        try {
-            Inventory inv = e.getInventory();
-            if (inv == null) return;
+    	
+    	GUI gui = GUIManager.getGui(e.getInventory());
+    	
+    	if (gui == null)
+    		return;
 
-            for (GUI gui : GUIManager.getGuis()) {
-                if (gui == null) continue;
-                if (gui.getTitle().equals(inv.getTitle())) {
-                    int slot = e.getSlot();
-                    Button btn = gui.getButton(slot);
-                    e.setCancelled(true);
-                    if (btn == null) return;
-                    if (btn.getEvent() != null) {
-                        btn.getEvent().clickEvent(new ButtonClickEvent(e));
-                    }
-                }
-            }
-        } catch (NullPointerException ignored) {
+    	int slot = e.getSlot();
+    	
+        Button btn = gui.getButton(slot);
+        
+        if (btn == null)
+        	return;
+        
+        e.setCancelled(gui.isReadOnly());
+        
+        if (btn.getEvent() != null) {
+            btn.getEvent().clickEvent(new ButtonClickEvent(e));
         }
     }
 }

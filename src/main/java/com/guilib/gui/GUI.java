@@ -17,6 +17,7 @@ public class GUI {
     private Inventory inv;
     private Map<Integer, Button> buttons = new HashMap<>();
     private String id;
+    private boolean readOnly = false;
 
     /**
      *
@@ -103,6 +104,15 @@ public class GUI {
     }
 
     /**
+     * Sets whether this inventory is read-only.
+     * 
+     * @param readOnly
+     */
+    public void setReadOnly(boolean readOnly) {
+    	this.readOnly = readOnly;
+    }
+    
+    /**
      * Get the ID of the GUI
      *
      * @return id of the gui
@@ -137,4 +147,13 @@ public class GUI {
     public void open(Player p) {
         p.openInventory(inv);
     }
+
+    /**
+     * Gets whether this inventory is read-only
+     * 
+     * @return readOnly
+     */
+	public boolean isReadOnly() {
+		return readOnly;
+	}
 }

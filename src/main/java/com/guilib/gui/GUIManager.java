@@ -1,14 +1,16 @@
 package com.guilib.gui;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 import net.kyori.adventure.text.Component;
+import net.minestom.server.inventory.Inventory;
 
 public class GUIManager {
-
-    private static List<GUI> guis = new ArrayList<>();
+	private static Map<String, GUI> idMap = new HashMap<>();
+	private static Map<Component, GUI> titleMap = new HashMap<>();
+	private static Map<Inventory, GUI> inventoryMap = new HashMap<>();
 
     /**
      * Register a GUI.
@@ -17,7 +19,9 @@ public class GUIManager {
      * @param gui the gui
      */
     public static void registerGUI(GUI gui) {
-        guis.add(gui);
+        titleMap.put(gui.getTitle(), gui);
+        idMap.put(gui.getId(), gui);
+        inventoryMap.put(gui.getInventory(), gui);
     }
 
     /**
@@ -25,8 +29,8 @@ public class GUIManager {
      *
      * @return all registered GUIs
      */
-    public static List<GUI> getGuis() {
-        return guis;
+    public static Collection<GUI> getGuis() {
+        return idMap.values();
     }
 
     /**
@@ -36,13 +40,8 @@ public class GUIManager {
      * @param title the title of the inventory
      * @return the gui found
      */
-    public static GUI getGuiByTitle(Component title) {
-    	Optional<GUI> optionalGui = guis
-    		.stream()
-    		.filter(gui -> gui.getTitle().toString().equals(title.toString()))
-    		.findAny();
-        
-        return optionalGui.orElse(null);
+    public static GUI getGui(Component title) {
+    	return titleMap.getOrDefault(title, null);
     }
 
     /**
@@ -52,12 +51,18 @@ public class GUIManager {
      * @param id the id of the gui
      * @return the gui found
      */
-    public static GUI getGuiById(String id) {
-    	Optional<GUI> optionalGui = guis
-    		.stream()
-    		.filter(gui -> gui.getId().equals(id))
-    		.findAny();
-        
-        return optionalGui.orElse(null);
+    public static GUI getGui(String id) {
+    	return idMap.getOrDefault(id, null);
+    }
+    
+    /**
+     * Get a GUI by the Inventory
+     * returns null if no GUI was found.
+     *
+     * @param id the id of the gui
+     * @return the gui found
+     */
+    public static GUI getGui(Inventory inventory) {
+    	return inventoryMap.getOrDefault(inventory, null);
     }
 }
