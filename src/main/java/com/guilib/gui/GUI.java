@@ -1,19 +1,21 @@
 package com.guilib.gui;
 
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+
 import com.guilib.buttons.Button;
 import com.guilib.buttons.StaticButton;
+
 import net.kyori.adventure.text.Component;
 import net.minestom.server.entity.Player;
 import net.minestom.server.inventory.Inventory;
 import net.minestom.server.inventory.InventoryType;
 import net.minestom.server.item.ItemStack;
 
-import java.util.HashMap;
-
 public class GUI {
-
     private Inventory inv;
-    private HashMap<Integer, Button> buttons = new HashMap<>();
+    private Map<Integer, Button> buttons = new HashMap<>();
     private String id;
 
     /**
@@ -21,8 +23,8 @@ public class GUI {
      * @param type  the inventory type
      * @param title the inventory title
      */
-    public GUI(InventoryType type, String title) {
-        new GUI(type, title, (String) null);
+    public GUI(InventoryType type, Component title) {
+        new GUI(type, title, String.valueOf(title.hashCode()));
     }
 
     /**
@@ -32,7 +34,7 @@ public class GUI {
      * @param title the inventory title
      * @param id    the gui ID
      */
-    public GUI(InventoryType type, String title, String id) {
+    public GUI(InventoryType type, Component title, String id) {
         inv = new Inventory(type, title);
         this.id = id;
     }
@@ -44,8 +46,8 @@ public class GUI {
      * @param title     the inventory title
      * @param emptyItem the item being shown in blank slots
      */
-    public GUI(InventoryType type, String title, ItemStack emptyItem) {
-        new GUI(type, title, emptyItem, null);
+    public GUI(InventoryType type, Component title, ItemStack emptyItem) {
+        new GUI(type, title, emptyItem, String.valueOf(title.hashCode()));
     }
 
     /**
@@ -56,7 +58,7 @@ public class GUI {
      * @param emptyItem the item being shown in blank slots
      * @param id        the gui ID
      */
-    public GUI(InventoryType type, String title, ItemStack emptyItem, String id) {
+    public GUI(InventoryType type, Component title, ItemStack emptyItem, String id) {
         inv = new Inventory(type, title);
         this.id = id;
 
@@ -75,6 +77,18 @@ public class GUI {
     public void addButton(int slot, Button button) {
         buttons.put(slot, button);
         inv.setItemStack(slot, button.getItem());
+    }
+    
+    /**
+     * Add a Button to a GUI on multiple slots
+     *
+     * @param slots  the slots for the button
+     * @param button the actual button
+     */
+    public void addButton(Collection<Integer> slots, Button button) {
+        for (int slot : slots) {
+        	addButton(slot, button);
+        }
     }
 
     /**

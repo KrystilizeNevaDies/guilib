@@ -16,7 +16,7 @@ public class ButtonClickEvent {
     /**
      * Get the player who clicked on the button
      *
-     * @return the palyer who clicked the button
+     * @return the player who clicked the button
      */
     public Player getPlayer() {
         return event.getPlayer();

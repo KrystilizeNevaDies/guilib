@@ -2,8 +2,9 @@ package com.guilib.gui;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
-import com.guilib.gui.GUI;
+import net.kyori.adventure.text.Component;
 
 public class GUIManager {
 
@@ -35,13 +36,13 @@ public class GUIManager {
      * @param title the title of the inventory
      * @return the gui found
      */
-    public static GUI getGuiByTitle(String title) {
-        for (GUI gui : guis) {
-            if (gui.getTitle().equals(title)) {
-                return gui;
-            }
-        }
-        return null;
+    public static GUI getGuiByTitle(Component title) {
+    	Optional<GUI> optionalGui = guis
+    		.stream()
+    		.filter(gui -> gui.getTitle().toString().equals(title.toString()))
+    		.findAny();
+        
+        return optionalGui.orElse(null);
     }
 
     /**
@@ -52,11 +53,11 @@ public class GUIManager {
      * @return the gui found
      */
     public static GUI getGuiById(String id) {
-        for (GUI gui : guis) {
-            if (gui.getId().equals(id)) {
-                return gui;
-            }
-        }
-        return null;
+    	Optional<GUI> optionalGui = guis
+    		.stream()
+    		.filter(gui -> gui.getId().equals(id))
+    		.findAny();
+        
+        return optionalGui.orElse(null);
     }
 }

@@ -1,6 +1,7 @@
 package com.guilib.gui;
 
 import com.guilib.listener.GUIListener;
+
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.event.inventory.InventoryPreClickEvent;
 
@@ -14,7 +15,7 @@ public class GuiLib {
         } else {
             initialized = true;
 
-            MinecraftServer.getGlobalEventHandler().addEventCallback(InventoryPreClickEvent.class, GUIListener.getEvent());
+            MinecraftServer.getGlobalEventHandler().addEventCallback(InventoryPreClickEvent.class, GUIListener::preClickEvent);
         }
     }
 
